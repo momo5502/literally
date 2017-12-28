@@ -18,6 +18,7 @@ workspace "literally"
 
 	addproject("io")
 	addproject("lib")
+	addproject("mem")
 
 
 workspace "*"
