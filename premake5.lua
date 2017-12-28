@@ -17,6 +17,7 @@ workspace "literally"
 	platforms { "Win32", "Win64" }
 
 	addproject("io")
+	addproject("lib")
 
 
 workspace "*"

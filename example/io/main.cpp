@@ -1,6 +1,6 @@
 #include <iostream>
 
-#define LITTERALLY_IO_IMPLEMENTATION
+#define LITERALLY_IO_IMPLEMENTATION
 #include <literally/io.hpp>
 
 using namespace literally::io;

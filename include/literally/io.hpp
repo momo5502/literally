@@ -4,8 +4,6 @@
 #include <fstream>
 #include <sstream>
 
-#define LITTERALLY_IO_IMPLEMENTATION
-
 namespace literally
 {
 	namespace io
@@ -42,7 +40,7 @@ namespace literally
 	}
 }
 
-#ifdef LITTERALLY_IO_IMPLEMENTATION
+#ifdef LITERALLY_IO_IMPLEMENTATION
 
 namespace literally
 {
