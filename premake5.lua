@@ -5,10 +5,18 @@ function addproject(name)
 		
 		files {
 			path.join("example", name, "**.cpp"),
+			path.join("include", "**", name .. ".hpp"),
 		}
 		
 		includedirs {
 			"./include",
+		}
+
+		vpaths {
+			["Source"] = {
+				"**/*.hpp",
+				"**/*.cpp",
+			},
 		}
 end
 

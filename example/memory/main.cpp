@@ -14,7 +14,7 @@ int main()
 	void* ptr = memory;   // Implicit conversion returns a pointer to the allocated memory
 
 	std::memset(ptr, 1, size);
-	std::memset(memory, 0, memory); // This also works
+	std::memset(memory, 0, memory); // This works as well
 
 	return 0;
 }
