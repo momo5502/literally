@@ -9,6 +9,9 @@ int main()
 	// Search the kernel32 library or load it, if it's not yet loaded
 	auto kernel = "kernel32"_lib;
 
+	// Check if the library is valid
+	if (!kernel) return 1;
+
 	// Invoke the VirtualAlloc function
 	// kernel32 functions use __stdcall, therefore invoke_pascal is needed
 	void* memory = kernel.invoke_pascal<LPVOID>("VirtualAlloc", nullptr, 4096, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);

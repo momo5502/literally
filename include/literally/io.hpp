@@ -22,6 +22,7 @@ namespace literally
 
 			friend std::ostream& operator<<(std::ostream& os, const file& dt);
 			operator std::string();
+			operator bool();
 
 			template <class T>
 			void write(T& data)
@@ -50,6 +51,11 @@ namespace literally
 		file::file(std::string name, int openmode) : stream(name, openmode)
 		{
 
+		}
+
+		file::operator bool()
+		{
+			return this->stream.is_open();
 		}
 
 		file::operator std::string()

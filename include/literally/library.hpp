@@ -34,6 +34,7 @@ namespace literally
 
 			dynlib(const dynlib& a) : dynlib(a.handle) {}
 
+			operator bool();
 			bool operator!=(const dynlib &obj) const { return !(*this == obj); };
 			bool operator==(const dynlib &obj) const;
 
@@ -166,6 +167,11 @@ namespace literally
 		dynlib::dynlib(HMODULE handle)
 		{
 			this->handle = handle;
+		}
+
+		dynlib::operator bool()
+		{
+			return this->is_valid();
 		}
 
 		bool dynlib::operator==(const dynlib &obj) const
