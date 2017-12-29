@@ -11,14 +11,14 @@
 #include <vector>
 #include <functional>
 
-#ifdef LITERALLY_LIB_DELAY_IMPORT
+#ifdef LITERALLY_LIBRARY_DELAY_IMPORT
 #include <delayimp.h>
 #pragma comment(lib, "delayimp.lib")
 #endif
 
 namespace literally
 {
-	namespace lib
+	namespace library
 	{
 		class dynlib
 		{
@@ -111,11 +111,11 @@ namespace literally
 	}
 }
 
-#ifdef LITERALLY_LIB_IMPLEMENTATION
+#ifdef LITERALLY_LIBRARY_IMPLEMENTATION
 
 namespace literally
 {
-	namespace lib
+	namespace library
 	{
 		dynlib dynlib::load(std::string name)
 		{

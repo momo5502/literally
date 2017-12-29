@@ -1,8 +1,8 @@
-#define LITERALLY_LIB_DELAY_IMPORT
-#define LITERALLY_LIB_IMPLEMENTATION
-#include <literally/lib.hpp>
+#define LITERALLY_LIBRARY_DELAY_IMPORT
+#define LITERALLY_LIBRARY_IMPLEMENTATION
+#include <literally/library.hpp>
 
-using namespace literally::lib;
+using namespace literally::library;
 
 int main()
 {
