@@ -7,3 +7,12 @@
 literally
 =========
 Literal-based header-only utility libraries
+
+Libraries
+---------
+
+| Name    | Function                                   | Example                                                                            |
+|---------|--------------------------------------------|------------------------------------------------------------------------------------|
+| io      | Easily read and write files                | [link](https://github.com/momo5502/literally/blob/master/example/io/main.cpp)      |
+| library | Access dynamic libraries (dlls) on Windows | [link](https://github.com/momo5502/literally/blob/master/example/library/main.cpp) |
+| memory  | Allocate and manage memory                 | [link](https://github.com/momo5502/literally/blob/master/example/memory/main.cpp)  |
