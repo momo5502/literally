@@ -34,15 +34,9 @@ namespace literally
 		inline block operator"" _kb(unsigned long long int size);
 		inline block operator"" _Mb(unsigned long long int size);
 		inline block operator"" _Gb(unsigned long long int size);
-	}
-}
 
 #ifdef LITERALLY_MEMORY_IMPLEMENTATION
 
-namespace literally
-{
-	namespace memory
-	{
 		block::block(size_t _size) : size(_size)
 		{
 			this->mutex = new std::mutex;
@@ -148,7 +142,8 @@ namespace literally
 		{
 			return operator"" _Mb(size * 1024);
 		}
-	}
-}
 
 #endif
+
+	}
+}

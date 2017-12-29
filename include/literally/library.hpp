@@ -109,15 +109,9 @@ namespace literally
 		};
 
 		dynlib operator"" _lib(const char* str, size_t len);
-	}
-}
 
 #ifdef LITERALLY_LIBRARY_IMPLEMENTATION
 
-namespace literally
-{
-	namespace library
-	{
 		dynlib dynlib::load(std::string name)
 		{
 			return dynlib(name, true);
@@ -389,7 +383,8 @@ namespace literally
 			std::string libname(str, len);
 			return dynlib(libname);
 		}
-	}
-}
 
 #endif
+
+	}
+}

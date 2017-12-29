@@ -39,15 +39,9 @@ namespace literally
 
 		file operator"" _file(const char* str, size_t len);
 		file operator"" _new_file(const char* str, size_t len);
-	}
-}
 
 #ifdef LITERALLY_IO_IMPLEMENTATION
 
-namespace literally
-{
-	namespace io
-	{
 		file::file(std::string name, int openmode) : stream(name, openmode)
 		{
 
@@ -98,7 +92,8 @@ namespace literally
 			std::string filename(str, len);
 			return file(filename, std::fstream::in | std::fstream::out | std::fstream::trunc | std::fstream::binary);
 		}
-	}
-}
 
 #endif
+
+	}
+}
