@@ -4,6 +4,9 @@
 #include <fstream>
 #include <sstream>
 
+#include <regex>
+#include <filesystem>
+
 namespace literally
 {
 	inline namespace io
@@ -36,6 +39,20 @@ namespace literally
 		private:
 			std::fstream stream;
 		};
+
+		class files : private std::vector<std::string>
+		{
+		public:
+			files(std::string path);
+
+			std::vector<std::string> filter(std::regex regex);
+			std::vector<std::string> filter(std::string regex);
+
+			files::iterator begin();
+			files::iterator end();
+		};
+
+		files operator"" _files(const char* str, size_t len);
 
 		file operator"" _file(const char* str, size_t len);
 		file operator"" _new_file(const char* str, size_t len);
@@ -91,6 +108,50 @@ namespace literally
 		{
 			std::string filename(str, len);
 			return file(filename, std::fstream::in | std::fstream::out | std::fstream::trunc | std::fstream::binary);
+		}
+
+		files::files(std::string path) : std::vector<std::string>()
+		{
+			for (auto& filename : std::experimental::filesystem::directory_iterator(path))
+			{
+				this->push_back(filename.path().generic_string());
+			}
+		}
+
+		std::vector<std::string> files::filter(std::string regex)
+		{
+			return this->filter(std::regex(regex));
+		}
+
+		std::vector<std::string> files::filter(std::regex regex)
+		{
+			std::vector<std::string> filtered_filenames;
+
+			for (auto& filename : *this)
+			{
+				if (std::regex_match(filename, regex))
+				{
+					filtered_filenames.push_back(filename);
+				}
+			}
+
+			return filtered_filenames;
+		}
+
+		files::iterator files::begin()
+		{
+			return std::vector<std::string>::begin();
+		}
+
+		files::iterator files::end()
+		{
+			return std::vector<std::string>::end();
+		}
+
+		files operator"" _files(const char* str, size_t len)
+		{
+			std::string path(str, len);
+			return files(path);
 		}
 
 #endif

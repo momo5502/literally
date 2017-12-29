@@ -35,5 +35,22 @@ int main()
 		std::cout << file;
 	}
 
+	std::cout << std::endl;
+
+	// List all files in the current directory
+	for (auto& file : "./"_files)
+	{
+		std::cout << file << std::endl;
+	}
+
+	std::cout << std::endl;
+
+	// List all executable files in the current directory
+	// The filter is a regular expression
+	for (auto& file : "./"_files.filter(".*\\.exe"))
+	{
+		std::cout << file << std::endl;
+	}
+
 	return 0;
 }
