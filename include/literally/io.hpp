@@ -11,7 +11,7 @@ namespace literally
 		class file
 		{
 		public:
-			file(std::string name);
+			file(std::string name, int openmode = std::fstream::in | std::fstream::out | std::fstream::app | std::fstream::binary);
 
 			template <class T>
 			file& operator+=(T& t)
@@ -36,7 +36,8 @@ namespace literally
 			std::fstream stream;
 		};
 
-		file operator"" _io(const char* str, size_t len);
+		file operator"" _file(const char* str, size_t len);
+		file operator"" _new_file(const char* str, size_t len);
 	}
 }
 
@@ -46,7 +47,7 @@ namespace literally
 {
 	namespace io
 	{
-		file::file(std::string name) : stream(name, std::fstream::in | std::fstream::out | std::fstream::trunc | std::fstream::binary)
+		file::file(std::string name, int openmode) : stream(name, openmode)
 		{
 
 		}
@@ -80,10 +81,16 @@ namespace literally
 			return data;
 		}
 
-		file operator"" _io(const char* str, size_t len)
+		file operator"" _file(const char* str, size_t len)
 		{
 			std::string filename(str, len);
 			return file(filename);
+		}
+
+		file operator"" _new_file(const char* str, size_t len)
+		{
+			std::string filename(str, len);
+			return file(filename, std::fstream::in | std::fstream::out | std::fstream::trunc | std::fstream::binary);
 		}
 	}
 }
