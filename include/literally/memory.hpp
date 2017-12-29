@@ -5,7 +5,7 @@
 
 namespace literally
 {
-	namespace memory
+	inline namespace memory
 	{
 		class block
 		{

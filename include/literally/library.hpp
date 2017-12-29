@@ -18,7 +18,7 @@
 
 namespace literally
 {
-	namespace library
+	inline namespace library
 	{
 		class dynlib
 		{

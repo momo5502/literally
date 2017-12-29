@@ -6,7 +6,7 @@
 
 namespace literally
 {
-	namespace io
+	inline namespace io
 	{
 		class file
 		{
