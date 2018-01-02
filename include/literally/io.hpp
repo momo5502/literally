@@ -57,7 +57,7 @@ namespace literally
 		file operator"" _file(const char* str, size_t len);
 		file operator"" _new_file(const char* str, size_t len);
 
-#ifdef LITERALLY_IO_IMPLEMENTATION
+#if defined(LITERALLY_IO_IMPLEMENTATION) || defined(LITERALLY_IMPLEMENTATION)
 
 		file::file(std::string name, int openmode) : stream(name, openmode)
 		{

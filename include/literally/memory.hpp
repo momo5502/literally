@@ -35,7 +35,7 @@ namespace literally
 		inline block operator"" _Mb(unsigned long long int size);
 		inline block operator"" _Gb(unsigned long long int size);
 
-#ifdef LITERALLY_MEMORY_IMPLEMENTATION
+#if defined(LITERALLY_MEMORY_IMPLEMENTATION) || defined(LITERALLY_IMPLEMENTATION)
 
 		block::block(size_t _size) : size(_size)
 		{

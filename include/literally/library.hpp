@@ -110,7 +110,7 @@ namespace literally
 
 		dynlib operator"" _lib(const char* str, size_t len);
 
-#ifdef LITERALLY_LIBRARY_IMPLEMENTATION
+#if defined(LITERALLY_LIBRARY_IMPLEMENTATION) || defined(LITERALLY_IMPLEMENTATION)
 
 		dynlib dynlib::load(std::string name)
 		{
