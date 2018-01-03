@@ -29,7 +29,7 @@ namespace literally
 			static void remove_load_path(DLL_DIRECTORY_COOKIE cookie);
 
 			dynlib();
-			dynlib(std::string name, bool load = false);
+			dynlib(std::string name, bool load = true);
 			dynlib(HMODULE handle);
 
 			dynlib(const dynlib& a) : dynlib(a.handle) {}
